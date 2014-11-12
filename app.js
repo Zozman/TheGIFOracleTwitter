@@ -8,7 +8,7 @@ var twit = require('twit');
 
 gifKey = process.env.GIPHYKEY;
 
-var T = new Twit({
+var T = new twit({
     consumer_key:         process.env.TWITTERCONSUMERKEY,
     consumer_secret:      process.env.TWITTERCONSUMERSECRET,
     access_token:         process.env.TWITTERACCESSTOKEN,
