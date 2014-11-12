@@ -98,7 +98,7 @@ stream.on('tweet', function (tweet) {
       var jsonResponse = JSON.parse(body);
       // Attempt to get a result URL
 	    try {
-	       result = returned.data.url;
+	       result = jsonResponse.data.url;
 	    // If a URLis ot returned, set null
 	    } catch (Exception) {
 	       		result = null;
