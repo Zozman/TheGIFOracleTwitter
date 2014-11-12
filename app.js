@@ -84,34 +84,36 @@ stream.on('tweet', function (tweet) {
   var tweetText = tweet.text;
   var fromUser = "@" + tweet.user.screen_name;
   
-  var searchTerm = tweetText.toLowerCase().replaceAll('@thegiforacle ','');
-  var formattedSearchTerm = searchTerm.replaceAll(' ','+');
-  
-  var URL = "http://api.giphy.com/v1/gifs/random?api_key=" + gifKey + "&tag=" + formattedSearchTerm;
-  
-  var result = "";
-  
-  console.log("Starting request with URL " + URL);
-  
-  request(URL, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      var jsonResponse = JSON.parse(body);
-      // Attempt to get a result URL
-	    try {
-	       result = jsonResponse.data.url;
-	    // If a URLis ot returned, set null
-	    } catch (Exception) {
-	       		result = null;
-	    }
-      if (result !== null) {
-        var status = fromUser + " " + result;
-        console.log("RESULT: " + status);
-        T.post('statuses/update', { status: status }, function(err, data, response) {
-          console.log(data);
-        })
+  if (tweetText.substring(0, 12) == "@thegiforacle") {
+    var searchTerm = tweetText.toLowerCase().replaceAll('@thegiforacle ','');
+    var formattedSearchTerm = searchTerm.replaceAll(' ','+');
+
+    var URL = "http://api.giphy.com/v1/gifs/random?api_key=" + gifKey + "&tag=" + formattedSearchTerm;
+
+    var result = "";
+
+    //console.log("Starting request with URL " + URL);
+
+    request(URL, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        var jsonResponse = JSON.parse(body);
+        // Attempt to get a result URL
+        try {
+           result = jsonResponse.data.url;
+        // If a URLis ot returned, set null
+        } catch (Exception) {
+              result = null;
+        }
+        if (result !== null) {
+          var status = fromUser + " " + searchTerm + ": " + result;
+          console.log("RESULT: " + status);
+          T.post('statuses/update', { status: status }, function(err, data, response) {
+            console.log(data);
+          })
+        }
       }
-    }
-  });
+    });
+  }
 })
 
 module.exports = app;
