@@ -6,11 +6,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var twit = require('twit');
 
+gifKey = process.env.GIPHYKEY;
+
 var T = new Twit({
-    consumer_key:         '...',
-    consumer_secret:      '...',
-    access_token:         '...',
-    access_token_secret:  '...'
+    consumer_key:         process.env.TWITTERCONSUMERKEY,
+    consumer_secret:      process.env.TWITTERCONSUMERSECRET,
+    access_token:         process.env.TWITTERACCESSTOKEN,
+    access_token_secret:  process.env.TWITTERACCESSSECRET
 });
 
 var routes = require('./routes/index');
