@@ -83,12 +83,14 @@ stream.on('tweet', function (tweet) {
   var tweetText = tweet.text;
   var fromUser = "@" + tweet.user.screen_name;
   
-  var searchTerm = tweetText.replaceAll('@thegiforacle ','');
+  var searchTerm = tweetText.toLowerCase().replaceAll('@thegiforacle ','');
   var formattedSearchTerm = searchTerm.replaceAll(' ','+');
   
   var URL = "http://api.giphy.com/v1/gifs/random?api_key=" + gifKey + "&tag=" + formattedSearchTerm;
   
   var result = "";
+  
+  console.log("Starting request with URL " + URL);
   
   request(URL, function (error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -102,6 +104,7 @@ stream.on('tweet', function (tweet) {
 	    }
       if (result !== null) {
         var status = fromUser + " " + result;
+        console.log("RESULT: " + status);
         T.post('statuses/update', { status: status }, function(err, data, response) {
           console.log(data);
         })
