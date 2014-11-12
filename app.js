@@ -67,7 +67,8 @@ app.use(function(err, req, res, next) {
 var stream = T.stream('statuses/filter', { track: '@thegiforacle' });
 
 stream.on('tweet', function (tweet) {
-  console.log(tweet);
+  console.log("TEXT: " + tweet.text);
+  console.log("USER: " + tweet.user.screen_name);
 })
 
 module.exports = app;
