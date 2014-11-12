@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var twit = require('twit');
+var request = require('request');
 
 var gifKey = process.env.GIPHYKEY;
 
