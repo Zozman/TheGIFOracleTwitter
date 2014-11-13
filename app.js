@@ -84,7 +84,7 @@ stream.on('tweet', function (tweet) {
   var tweetText = tweet.text;
   var fromUser = "@" + tweet.user.screen_name;
   
-  if (tweetText.substring(0, 12) == "@thegiforacle") {
+  if (tweetText.substring(0, 11) == "@thegiforacle") {
     var searchTerm = tweetText.toLowerCase().replaceAll('@thegiforacle ','');
     var formattedSearchTerm = searchTerm.replaceAll(' ','+');
 
