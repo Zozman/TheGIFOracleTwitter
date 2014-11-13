@@ -108,7 +108,8 @@ stream.on('tweet', function (tweet) {
           var status = fromUser + " " + searchTerm + ": " + result;
           console.log("RESULT: " + status);
           T.post('statuses/update', { status: status }, function(err, data, response) {
-            console.log(data);
+            //console.log(data);
+            console.log("Tweet Posted!");
           })
         }
       }
