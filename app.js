@@ -104,10 +104,16 @@ stream.on('tweet', function (tweet) {
         } catch (Exception) {
               result = null;
         }
-        if (result !== null) {
+        if ((result !== null) && (result !== undefined)) {
           var status = fromUser + " " + searchTerm + ": " + result;
           console.log("RESULT: " + status);
           T.post('statuses/update', { status: status }, function(err, data, response) {
+            //console.log(data);
+            console.log("Tweet Posted!");
+          })
+        } else {
+          var status2 = fromUser + " " + searchTerm + ": No GIF Available";
+          T.post('statuses/update', { status: status2 }, function(err, data, response) {
             //console.log(data);
             console.log("Tweet Posted!");
           })
