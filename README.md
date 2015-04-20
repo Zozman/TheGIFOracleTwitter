@@ -5,10 +5,10 @@ The GIF Oracle for Twitter is a Node application that can be linked to a Twitter
 How To Use
 -------
  - Send a Tweet to [@TheGIFOracle](https://twitter.com/TheGIFOracle)
-  - EX: "@TheGIFOracle Roll Tide"
- - [@TheGIFOracle](https://twitter.com/TheGIFOracle) will return a link to an animated GIF (possibly) dealing with the subject.  If it cannot find a GIF for it, it will let you know.
+  - EX: "@TheGIFOracle NOPE"
+ - [@TheGIFOracle](https://twitter.com/TheGIFOracle) will return a link to an animated GIF (possibly) dealing with the subject (the result is random and changes every time).  If it cannot find a GIF for it, it will let you know.
  
- ![Roll Tide GIF](http://media.giphy.com/media/3oEdv5gaBMdk5JsWKA/giphy.gif)
+ ![NOPE GIF](http://media.giphy.com/media/xTiTneMy3TmvuNtOW4/giphy.gif)
 
 Dependencies
 -------
