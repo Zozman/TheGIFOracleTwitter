@@ -23,4 +23,4 @@ About
 -------
 This application was built as an exercise in learning the Twitter Streaming API and how it works.  It was also built for fun.  
 
-![enter image description here](https://raw.githubusercontent.com/Zozman/TheGifOracleChrome/master/screenshots/giphyLogo.gif)
+![Powered By Giphy](https://raw.githubusercontent.com/Zozman/TheGifOracleChrome/master/screenshots/giphyLogo.gif)
